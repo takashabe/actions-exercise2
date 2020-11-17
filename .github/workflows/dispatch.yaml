@@ -1,0 +1,21 @@
+name: workflow_dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      api1:
+        description: ""
+        required: true
+        default: 'https://api1.example.com'
+      api2:
+        description: ""
+        required: true
+        default: 'https://api2.example.com'
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo ${{ github.event.inputs.api1 }}
+        echo ${{ github.event.inputs.api2 }}
